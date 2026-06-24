@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tara Shri — Information Technology Student, Future Software Developer. Portfolio showcasing projects, skills, and education.">
+  <meta name="keywords" content="Tara Shri, Portfolio, Web Developer, IT Student, Software Developer">
+  <meta name="author" content="Tara Shri">
+  <title>Tara Shri | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+  <div class="cursor-spotlight" id="cursorSpotlight"></div>
+
+  <!-- Background Effects -->
+  <div class="bg-effects" aria-hidden="true">
+    <canvas id="particleCanvas"></canvas>
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    <div class="aurora aurora-3"></div>
+    <div class="gradient-mesh"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="stars" id="stars"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>Tara<span class="logo-accent">.</span>Shri<span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#education" class="nav-link" data-section="education">Education</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+      <div class="nav-social">
+        <a href="https://github.com/TARASHRI-BTECH" target="_blank" rel="noopener noreferrer" class="nav-social-icon liquid-glow" aria-label="GitHub" data-cursor="button">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.395-.135-.345-.72-1.395-1.23-1.68-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A8.996 8.996 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/tarashri-m-b4549b419" target="_blank" rel="noopener noreferrer" class="nav-social-icon liquid-glow" aria-label="LinkedIn" data-cursor="button">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:tarashri3008@gmail.com" class="nav-social-icon liquid-glow" aria-label="Email" data-cursor="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-text" data-parallax="0.03">
+        <p class="hero-greeting fade-up">Hi, I'm</p>
+        <h1 class="hero-name fade-up">
+          <span class="gradient-text shiny-text">Tara Shri</span>
+        </h1>
+        <div class="hero-roles">
+          <p class="typing-text" id="typingText"></p>
+        </div>
+        <p class="hero-tagline fade-up">Crafting digital experiences with code & creativity</p>
+        <div class="hero-buttons fade-up">
+          <a href="#projects" class="btn btn-primary liquid-glow" data-cursor="button">
+            <span>View Projects</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="assets/resume.pdf" class="btn btn-secondary liquid-glow" download data-cursor="button">
+            <span>Download Resume</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-image" data-parallax="0.06">
+        <div class="profile-wrapper floating">
+          <div class="profile-ring"></div>
+          <div class="profile-ring ring-2"></div>
+          <div class="profile-img">
+            <div class="profile-placeholder">
+              <span>TS</span>
+            </div>
+          </div>
+        </div>
+        <div class="floating-icons">
+          <div class="tech-icon icon-1" title="HTML5">
+            <svg viewBox="0 0 24 24" fill="#E44D26"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622h10.125l-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.955-.81-.188-2.11h-2.61l.29 3.855L12 20.16l5.106-1.627L18.5 4.414z"/></svg>
+          </div>
+          <div class="tech-icon icon-2" title="CSS3">
+            <svg viewBox="0 0 24 24" fill="#1572B6"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622h10.125l-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.955-.81-.188-2.11h-2.61l.29 3.855L12 20.16l5.106-1.627L18.5 4.414z"/></svg>
+          </div>
+          <div class="tech-icon icon-3" title="JavaScript">
+            <svg viewBox="0 0 24 24" fill="#F7DF1E"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755 1.025-.423.6-.674 1.142-.845 2.071-.9.282-1.87.225-2.494-.174-.606-.382-.93-1.002-.93-1.9 0-1.31.99-1.98 2.52-2.52 1.02-.39 1.44-.66 1.44-1.26 0-.48-.39-.78-1.02-.78-.72 0-1.14.36-1.2 1.02h-1.68c.06-1.26.72-2.28 2.52-2.88 1.56-.48 3.36-.18 4.26.84.9 1.02.72 2.58-.36 3.3zM8.25 17.25c-.36.9-.96 1.62-1.8 2.1l1.08 1.38c1.56-.96 2.76-2.34 3.3-4.14H9.6c-.24.66-.54 1.26-.9 1.8-.36-.54-.66-1.14-.9-1.8H5.7c.54 1.8 1.74 3.18 3.3 4.14l1.08-1.38c-.84-.48-1.44-1.2-1.8-2.1h1.17z"/></svg>
+          </div>
+          <div class="tech-icon icon-4" title="Python">
+            <svg viewBox="0 0 24 24" fill="#3776AB"><path d="M14.25.18l.9.16.03.9-.9-.16-.03-.9zm3.57 1.04l.78.45-.45.78-.78-.45.45-.78zm2.28 2.1l.6.7-.7.6-.6-.7.7-.6zm1.53 3.3l.3.85-.85.3-.3-.85.85-.3zm-.6 3.75l-.15.88-.88-.15.15-.88.88.15zm-1.95 3.3l-.45.78-.78-.45.45-.78.78.45zm-2.85 2.1l-.7.6-.6-.7.7-.6.6.7zm-3.45 1.05l-.85.3-.3-.85.85-.3.3.85zm-3.6-.6l-.88.15.15.88.88-.15-.15-.88zm-3.3-1.95l-.78.45.45.78.78-.45-.45-.78zm-2.55-2.85l-.6.7.7.6.6-.7-.7-.6zm-1.5-3.45l-.3.85.85.3.3-.85-.85-.3zm.45-3.6l-.15.88.88.15.15-.88-.88-.15zm1.95-3.3l.45.78.78-.45-.45-.78-.78.45zm2.85-2.1l.7.6.6-.7-.7-.6-.6.7zM12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm0 1.5c4.556 0 8.25 3.694 8.25 8.25s-3.694 8.25-8.25 8.25S3.75 16.556 3.75 12 7.444 3.75 12 3.75z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Get To Know Me</span>
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="glass-card about-card liquid-glow reveal fade-left">
+          <h3>Who I Am</h3>
+          <p>I'm Tara Shri, an enthusiastic Information Technology student with a deep passion for software development and technology. I love turning complex problems into elegant, user-friendly solutions through clean code and creative thinking.</p>
+        </div>
+        <div class="glass-card about-card liquid-glow reveal fade-up">
+          <h3>Career Objective</h3>
+          <p>My goal is to become a skilled software developer who builds impactful applications. I'm committed to continuous learning, staying current with emerging technologies, and contributing to innovative projects that make a difference.</p>
+        </div>
+        <div class="glass-card about-card liquid-glow reveal fade-right">
+          <h3>My Mindset</h3>
+          <p>I believe in learning by doing. Every project is an opportunity to grow, every bug is a lesson, and every challenge fuels my curiosity. I'm always eager to explore new frameworks, tools, and methodologies.</p>
+        </div>
+      </div>
+      <div class="counters-grid reveal">
+        <div class="counter-card glass-card liquid-glow">
+          <span class="counter-number" data-target="5">0</span>
+          <span class="counter-label">Projects Completed</span>
+        </div>
+        <div class="counter-card glass-card liquid-glow">
+          <span class="counter-number" data-target="9">0</span>
+          <span class="counter-label">Technologies Learned</span>
+        </div>
+        <div class="counter-card glass-card liquid-glow">
+          <span class="counter-number" data-target="3">0</span>
+          <span class="counter-label">Certifications</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">What I Know</span>
+        <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card liquid-glow reveal stagger">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="#E44D26"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622h10.125l-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.955-.81-.188-2.11h-2.61l.29 3.855L12 20.16l5.106-1.627L18.5 4.414z"/></svg>
+          </div>
+          <h3>HTML</h3>
+          <div class="progress-bar"><div class="progress-fill" data-progress="90"></div></div>
+          <span class="skill-level">90%</span>
+        </div>
+        <div class="skill-card liquid-glow reveal stagger">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="#1572B6"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622h10.125l-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.955-.81-.188-2.11h-2.61l.29 3.855L12 20.16l5.106-1.627L18.5 4.414z"/></svg>
+          </div>
+          <h3>CSS</h3>
+          <div class="progress-bar"><div class="progress-fill" data-progress="85"></div></div>
+          <span class="skill-level">85%</span>
+        </div>
+        <div class="skill-card liquid-glow reveal stagger">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="#F7DF1E"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755 1.025-.423.6-.674 1.142-.845 2.071-.9.282-1.87.225-2.494-.174-.606-.382-.93-1.002-.93-1.9 0-1.31.99-1.98 2.52-2.52 1.02-.39 1.44-.66 1.44-1.26 0-.48-.39-.78-1.02-.78-.72 0-1.14.36-1.2 1.02h-1.68c.06-1.26.72-2.28 2.52-2.88 1.56-.48 3.36-.18 4.26.84.9 1.02.72 2.58-.36 3.3z"/></svg>
+          </div>
+          <h3>JavaScript</h3>
+          <div class="progress-bar"><div class="progress-fill" data-progress="80"></div></div>
+          <span class="skill-level">80%</span>
+        </div>
+        <div class="skill-card liquid-glow reveal stagger">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="#ED8B00"><path d="M8.851 18.56s.817.733.977.866c.24.198.48.396.72.594l-.977.866c-.24-.198-.48-.396-.72-.594-.16-.133-.977-.866-.977-.866zm6.698-6.698s.817.733.977.866c.24.198.48.396.72.594l-.977.866c-.24-.198-.48-.396-.72-.594-.16-.133-.977-.866-.977-.866zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v2h-2v-2zm0-10h2v8h-2V7z"/></svg>
+          </div>
+          <h3>Java</h3>
+          <div class="progress-bar"><div class="progress-fill" data-progress="75"></div></div>
+          <span class="skill-level">75%</span>
+        </div>
+        <div class="skill-card liquid-glow reveal stagger">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="#3776AB"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+          </div>
+          <h3>Python</h3>
+          <div class="progress-bar"><div class="progress-fill" data-progress="78"></div></div>
+          <span class="skill-level">78%</span>
+        </div>
+        <div class="skill-card liquid-glow reveal stagger">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="#336791"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+          </div>
+          <h3>SQL</h3>
+          <div class="progress-bar"><div class="progress-fill" data-progress="70"></div></div>
+          <span class="skill-level">70%</span>
+        </div>
+        <div class="skill-card liquid-glow reveal stagger">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.395-.135-.345-.72-1.395-1.23-1.68-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A8.996 8.996 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </div>
+          <h3>GitHub</h3>
+          <div class="progress-bar"><div class="progress-fill" data-progress="82"></div></div>
+          <span class="skill-level">82%</span>
+        </div>
+        <div class="skill-card liquid-glow reveal stagger">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="#007ACC"><path d="M23.15 2.587L18.21.21a2.01 2.01 0 00-2.16.43l-5.8 5.8a2.01 2.01 0 00-.43 2.16l2.377 4.94a2.01 2.01 0 002.16.43l5.8-5.8a2.01 2.01 0 00.43-2.16L23.15 2.587zM1 19.5V22h2.5l9.46-9.46-2.5-2.5L1 19.5z"/></svg>
+          </div>
+          <h3>VS Code</h3>
+          <div class="progress-bar"><div class="progress-fill" data-progress="88"></div></div>
+          <span class="skill-level">88%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card liquid-glow reveal stagger">
+          <div class="project-image">
+            <div class="project-img-placeholder" style="--project-hue: 270">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <div class="project-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>Student Management System</h3>
+            <p>A comprehensive system for managing student records, attendance, grades, and academic performance with an intuitive dashboard interface.</p>
+            <div class="project-tech">
+              <span>Java</span><span>SQL</span><span>HTML</span><span>CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-btn liquid-glow" data-cursor="button">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.395-.135-.345-.72-1.395-1.23-1.68-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A8.996 8.996 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+              </a>
+              <a href="#" class="project-btn project-btn-live liquid-glow" data-cursor="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="project-card liquid-glow reveal stagger">
+          <div class="project-image">
+            <div class="project-img-placeholder" style="--project-hue: 290">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="project-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>Portfolio Website</h3>
+            <p>A modern, responsive portfolio website featuring glassmorphism design, custom cursor effects, and smooth animations built with pure HTML, CSS, and JavaScript.</p>
+            <div class="project-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-btn liquid-glow" data-cursor="button">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.395-.135-.345-.72-1.395-1.23-1.68-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A8.996 8.996 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+              </a>
+              <a href="#" class="project-btn project-btn-live liquid-glow" data-cursor="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </article>
+        <article class="project-card liquid-glow reveal stagger">
+          <div class="project-image">
+            <div class="project-img-placeholder" style="--project-hue: 310">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            </div>
+            <div class="project-overlay"></div>
+          </div>
+          <div class="project-content">
+            <h3>Online Quiz Application</h3>
+            <p>An interactive quiz platform with timed questions, score tracking, multiple categories, and a responsive design for seamless learning experiences.</p>
+            <div class="project-tech">
+              <span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-btn liquid-glow" data-cursor="button">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.395-.135-.345-.72-1.395-1.23-1.68-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A8.996 8.996 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                GitHub
+              </a>
+              <a href="#" class="project-btn project-btn-live liquid-glow" data-cursor="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="section education" id="education">
+    <div class="edu-particles" id="eduParticles" aria-hidden="true"></div>
+    <div class="container">
+      <div class="education-header">
+        <span class="section-tag">Academic</span>
+        <h2 class="education-title" id="educationTitle" aria-label="Education"></h2>
+      </div>
+
+      <div class="education-showcase">
+        <div class="edu-line-track" id="eduLineTrack">
+          <div class="edu-line-draw"></div>
+          <div class="edu-line-dot"></div>
+        </div>
+
+        <div class="edu-card liquid-glow" id="eduCard">
+          <div class="edu-icon" title="Graduation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M12 3L2 8l10 5 10-5-10-5z"/>
+              <path d="M6 11v4c0 2.5 3.5 4.5 6 4.5s6-2 6-4.5v-4"/>
+              <path d="M22 8v6"/>
+            </svg>
+          </div>
+          <div class="edu-info">
+            <span class="edu-degree">B.Tech Information Technology</span>
+            <span class="edu-college">Shree Venkateshwara Hi-Tech Engineering College</span>
+            <span class="edu-year">2023 — 2027</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Contact <span class="gradient-text">Me</span></h2>
+      </div>
+      <div class="contact-wrapper">
+        <form class="contact-form glass-card liquid-glow reveal fade-left" id="contactForm" novalidate>
+          <input type="hidden" name="_subject" value="New Portfolio Message — Tara Shri Website">
+          <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-group">
+            <input type="text" id="name" name="name" required autocomplete="name">
+            <label for="name">Your Name</label>
+            <span class="input-glow"></span>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" required autocomplete="email" inputmode="email">
+            <label for="email">Your Email</label>
+            <span class="input-glow"></span>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="message">Your Message</label>
+            <span class="input-glow"></span>
+          </div>
+          <p class="form-error" id="formError" role="alert" hidden>Something went wrong. Please try again or email directly.</p>
+          <button type="submit" class="btn btn-primary liquid-glow submit-btn" id="submitBtn" data-cursor="button">
+            <span class="submit-text">Send Message</span>
+            <span class="submit-loading" hidden>Sending…</span>
+            <svg class="submit-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+        </form>
+        <div class="contact-info reveal fade-right">
+          <p class="contact-text">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!</p>
+          <div class="contact-detail">
+            <span class="contact-detail-label">Email me at</span>
+            <a href="mailto:tarashri3008@gmail.com" class="contact-email">tarashri3008@gmail.com</a>
+          </div>
+          <div class="social-links contact-social">
+            <a href="https://github.com/TARASHRI-BTECH" target="_blank" rel="noopener noreferrer" class="social-icon liquid-glow" aria-label="GitHub" data-cursor="button">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.395-.135-.345-.72-1.395-1.23-1.68-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A8.996 8.996 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/tarashri-m-b4549b419" target="_blank" rel="noopener noreferrer" class="social-icon liquid-glow" aria-label="LinkedIn" data-cursor="button">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="mailto:tarashri3008@gmail.com" class="social-icon liquid-glow" aria-label="Email" data-cursor="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo">
+            <span class="logo-bracket">&lt;</span>Tara<span class="logo-accent">.</span>Shri<span class="logo-bracket">/&gt;</span>
+          </a>
+          <p>Building the future, one line of code at a time.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="https://github.com/TARASHRI-BTECH" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.395-.135-.345-.72-1.395-1.23-1.68-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A8.996 8.996 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/tarashri-m-b4549b419" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="mailto:tarashri3008@gmail.com" class="social-icon" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Tara Shri. All rights reserved.</p>
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Success Popup -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup glass-card">
+      <div class="popup-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h3>Message Sent!</h3>
+      <p>Thank you for reaching out. I'll get back to you soon.</p>
+      <button class="btn btn-primary liquid-glow" id="popupClose" data-cursor="button">Got it</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
